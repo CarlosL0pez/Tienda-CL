@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Inicio - Biblioteca CL</title>
+        <link rel="stylesheet" th:href="@{/css/estilos.css}" />
+    </head>
+
+    <body>
+        <header>
+            <h1>Bienvenido a la Biblioteca CL</h1>
+            <p>Descubre el poder de la lectura y encuentra tu próximo libro favorito.</p>
+        </header>
+
+        <main>
+            <!-- Sección de información general -->
+            <section id="info-biblioteca">
+                <h2>Sobre Nosotros</h2>
+                <p>
+                    En la Biblioteca CL creemos que cada libro abre una puerta a un nuevo mundo.
+                    Ofrecemos una amplia colección de literatura, investigación y entretenimiento
+                    para lectores de todas las edades.
+                </p>
+            </section>
+
+            <!-- Sección del nuevo libro -->
+            <section id="nuevo-libro">
+                <h2>Nuevo Libro Disponible</h2>
+
+                <div th:if="${nuevoLibro != null}">
+                    <h3 th:text="${nuevoLibro.titulo}">Título del Libro</h3>
+                    <p><strong>Autor:</strong> <span th:text="${nuevoLibro.autor}">Autor</span></p>
+                    <p><strong>Descripción:</strong> <span th:text="${nuevoLibro.descripcion}">Descripción del libro</span></p>
+                    <p><strong>Precio:</strong> ₡<span th:text="${nuevoLibro.precio}">0.00</span></p>
+                </div>
+
+                <div th:if="${nuevoLibro == null}">
+                    <p>No hay libros nuevos en este momento.</p>
+                </div>
+            </section>
+
+            <!-- Sección de video o imagen -->
+            <section id="multimedia">
+                <h2>Disfruta de la Lectura</h2>
+                <p>La lectura transforma la mente y el alma. Mira este video inspirador:</p>
+                <div class="video-container">
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/J5gCeWEGiQI"
+                        title="El poder de la lectura"
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Biblioteca CL. Todos los derechos reservados.</p>
+        </footer>
+    </body>
+</html>
